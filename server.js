@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const http = require('http');
 const response = require(__dirname + '/lib/response.js');

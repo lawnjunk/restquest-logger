@@ -1,12 +1,23 @@
 {
   "name": "request-loger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "log http requests",
   "main": "server.js",
-  "bin":"node server.js",
+  "bin": {
+    "request-loger": "./server.js"
+  },
   "scripts": {
-    "test": "true"
+    "test": "true",
+    "start": "node server.js"
   },
   "author": "slugbyte",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slugbyte/request-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/slugbyte/request-logger/issues"
+  },
+  "homepage": "https://github.com/slugbyte/request-logger#readme"
 }
