@@ -1,0 +1,12 @@
+{
+  "name": "request-loger",
+  "version": "0.1.0",
+  "description": "log http requests",
+  "main": "server.js",
+  "bin":"node server.js",
+  "scripts": {
+    "test": "true"
+  },
+  "author": "slugbyte",
+  "license": "ISC"
+}
