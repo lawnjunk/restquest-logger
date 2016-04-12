@@ -14,10 +14,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  req.on('end', () => {
-    console.log('wedone slone');
-  });
-
   req.on('data', (data) => {
     logger.printReqBody(data, (err) => {
       if (err) return response.reqBodyBad(res);
