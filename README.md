@@ -2,12 +2,7 @@
 > color coded http request loger
 
 ## output
-* METHOD
-* URL
-* HTTP VERSION
-* HEADERS
-* JSON body on put/post/patch/delete
- * logs an **error** if body is not valid json
+![requset-loger output](assets/request-loger-output.png)
 
 ## install
 `npm install -g request-loger`
