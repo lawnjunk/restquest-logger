@@ -1,27 +1,12 @@
 #!/usr/bin/env node
-'use strict';
-const http = require('http');
-const response = require(__dirname + '/lib/response.js');
-const loger = require(__dirname + '/lib/loger.js');
 
+const http = require('http');
+const router = require(__dirname + '/lib/router');
 const port = process.env.PORT || 7070; 
 
-const server = http.createServer((req, res) => {
-  loger.printReqHeaders(req);
-  
-  if (req.method === 'GET'){
-    response.reqBodyNo(res);
-    return;
-  }
-
-  req.on('data', (data) => {
-    loger.printReqBody(data, (err) => {
-      if (err) return response.reqBodyBad(res);
-      response.reqBodyOk(res);
-    });
-  });
-});
+const server = http.createServer(router);
+server.timeout = 200;
 
 server.listen(port, function(){
-  console.log('request-loger is running on port:', port);
+  console.log('request-logger is running on port:', port);
 });
