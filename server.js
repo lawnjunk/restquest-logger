@@ -2,12 +2,12 @@
 'use strict';
 const http = require('http');
 const response = require(__dirname + '/lib/response.js');
-const logger = require(__dirname + '/lib/logger.js');
+const loger = require(__dirname + '/lib/loger.js');
 
 const port = process.env.PORT || 7070; 
 
 const server = http.createServer((req, res) => {
-  logger.printReqHeaders(req);
+  loger.printReqHeaders(req);
   
   if (req.method === 'GET'){
     response.reqBodyNo(res);
@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
   }
 
   req.on('data', (data) => {
-    logger.printReqBody(data, (err) => {
+    loger.printReqBody(data, (err) => {
       if (err) return response.reqBodyBad(res);
       response.reqBodyOk(res);
     });
