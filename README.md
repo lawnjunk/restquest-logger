@@ -2,8 +2,7 @@
 > color coded http request loger
 
 ## output
-![requset-loger output](assets/request-loger-output.png)
-
+![requset-loger output](/assets/requset-loger-output.png)
 ## install
 `npm install -g request-loger`
 
