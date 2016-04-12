@@ -19,32 +19,44 @@ function restResponseHandler(method, action){
   };
 }
 
-function noBodyHandler(req, callback){
-  // print headers
-  logger.printReqHeaders(req);
-
-  // callback with successMessage
-  callback(responseMessages.success);
-  return;
+function authorize(req, callback){
+  const authHeader = req.headers.authorization;
+  if (authHeader){
+    const base64  = authHeader.split(' ')[1];
+    const authString = new Buffer(base64, 'base64').toString('utf8');
+    if (authString === 'testuser:password') {
+      return callback();
+    }
+    console.log('user not authorized');
+    callback(new Error('not authorized'));
+  }
 }
 
-function jsonBodyHandler(req, callback){
+function authNoBodyHandler(req, callback){
+  // print headers
   logger.printReqHeaders(req);
-
-  // try to parse json callback success or callback jsonerror
-  logger.printReqBody(req, (err) => {
-    if (err) return callback(responseMessages.invalidJSON);
+  
+  authorize(req, (err) => {
+    if (err) return callback(responseMessages.unauthorized);
     callback(responseMessages.success);
   });
 }
 
-function timeoutResponse(req, res){
-  response(res, responseMessages.timeout);
+function authJSONBodyHandler(req, callback){
+  logger.printReqHeaders(req);
+
+  // try to parse json callback success or callback jsonerror
+  authorize(req, (err) => {
+    if (err) return callback(responseMessages.unauthorized);
+    logger.printReqBody(req, (err) => {
+      if (err) return callback(responseMessages.invalidJSON);
+      callback(responseMessages.success);
+    });
+  });
 }
 
-exports.getResponse    = restResponseHandler('GET', noBodyHandler);
-exports.postResponse   = restResponseHandler('POST', jsonBodyHandler);
-exports.putResponse    = restResponseHandler('PUT', jsonBodyHandler);
-exports.patchResponse  = restResponseHandler('PATCH', jsonBodyHandler);
-exports.deleteResponse = restResponseHandler('DELETE', jsonBodyHandler);
-exports.timeout        = timeoutResponse;
+exports.getResponse    = restResponseHandler('GET', authNoBodyHandler);
+exports.postResponse   = restResponseHandler('POST', authJSONBodyHandler);
+exports.putResponse    = restResponseHandler('PUT', authJSONBodyHandler);
+exports.patchResponse  = restResponseHandler('PATCH', authJSONBodyHandler);
+exports.deleteResponse = restResponseHandler('DELETE', authJSONBodyHandler);
