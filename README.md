@@ -23,11 +23,12 @@ PORT=4000 requset-loger
 ```
 ## example request with httpie
 ``` sh
-## example get request
+# example get request
 
 $ http localhost:7070/hello Accpet:application/json example=='this is a query string'
 ```
 ``` sh
 # example post request with json body
+
 $ echo '{"name":"testuser"}' | http POST localhost:7070
 ```
