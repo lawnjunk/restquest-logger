@@ -7,7 +7,7 @@
 * HTTP VERSION
 * HEADERS
 * JSON body on put/post/patch/delete
- * logs an **error:** if body is not valid json
+ * logs an **error** if body is not valid json
 
 ## install
 `npm install -g request-loger`
