@@ -1,10 +1,10 @@
-# request-logger
-> color coded http request logger
+# restquest-logger
+> color coded http restquest logger
 
 ## output
 ![requset-logger output](/assets/requset-logger-output.png)
 ## install
-`npm install -g request-logger`
+`npm install -g restquest-logger`
 
 ## start server
 ``` sh 
