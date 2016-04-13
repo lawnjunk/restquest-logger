@@ -1,10 +1,10 @@
 {
-  "name": "request-logger",
+  "name": "restquest-logger",
   "version": "0.1.5",
-  "description": "log http requests",
+  "description": "color coded http requset logger for praticing rest request",
   "main": "server.js",
   "bin": {
-    "request-logger": "./server.js"
+    "restquest-logger": "./server.js"
   },
   "scripts": {
     "test": "true",
@@ -14,10 +14,13 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/slugbyte/request-logger.git"
+    "url": "git+https://github.com/slugbyte/restquest-logger.git"
   },
   "bugs": {
-    "url": "https://github.com/slugbyte/request-logger/issues"
+    "url": "https://github.com/slugbyte/restquest-logger/issues"
   },
-  "homepage": "https://github.com/slugbyte/request-logger#readme"
+  "homepage": "https://github.com/slugbyte/restquest-logger#readme",
+  "directories": {
+    "test": "test"
+  }
 }

@@ -8,5 +8,5 @@ const server = http.createServer(router);
 server.timeout = 200;
 
 server.listen(port, function(){
-  console.log('request-logger is running on port:', port);
+  console.log('restquest-logger is running on port:', port);
 });
