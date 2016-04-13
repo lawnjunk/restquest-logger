@@ -1,19 +1,19 @@
-# request-loger
-> color coded http request loger
+# restquest-logger
+> color coded http restquest logger
 
 ## output
-![requset-loger output](/assets/requset-loger-output.png)
+![requset-logger output](/assets/requset-logger-output.png)
 ## install
-`npm install -g request-loger`
+`npm install -g restquest-logger`
 
 ## start server
 ``` sh 
 # start on default port 7070
-requset-loger
+requset-logger
 ```
 ``` sh 
 # start on default port 4000
-PORT=4000 requset-loger
+PORT=4000 requset-logger
 ```
 ## example request with httpie
 ``` sh
