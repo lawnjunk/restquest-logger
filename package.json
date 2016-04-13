@@ -1,6 +1,6 @@
 {
   "name": "restquest-logger",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "color coded http requset logger for praticing rest request",
   "main": "server.js",
   "bin": {
